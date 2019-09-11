@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     static final char MUL = '*';
     static final char DIV = '/';
     static final char SUB = '-';
+    int flag = 0;
     static final char EQUAL = '=';
     char fun;
     String pattern = "###,###.###";
@@ -122,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 tr.setText(null);
                 t.setText(null);
-                d1=Double.NaN;
-                d2=Double.NaN;
+                d1 = Double.NaN;
+                d2 = Double.NaN;
             }
         });
         bc.setOnClickListener(new View.OnClickListener() {
@@ -132,21 +133,21 @@ public class MainActivity extends AppCompatActivity {
                 if (t.length() > 0) {
                     CharSequence name = t.getText().toString();
                     t.setText(name.subSequence(0, name.length() - 1));
-                    d1=Double.NaN;
-                    d2=Double.NaN;
+                    d1 = Double.NaN;
+                    d2 = Double.NaN;
                 } else if (t.length() == 0) {
                     if (tr.length() > 0) {
                         String i = tr.getText().toString();
                         tr.setText(null);
                         t.setText(i);
-                        d1=Double.NaN;
-                        d2=Double.NaN;
+                        d1 = Double.NaN;
+                        d2 = Double.NaN;
                     }
                 } else {
                     t.setText(null);
                     tr.setText(null);
-                    d1=Double.NaN;
-                    d2=Double.NaN;
+                    d1 = Double.NaN;
+                    d2 = Double.NaN;
                 }
             }
         });
@@ -156,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
                 function();
                 fun = MUL;
                 t.setText(null);
-                tr.setText(d.format(d1)+"*");
+                tr.setText(d.format(d1) + "*");
             }
         });
         bplus.setOnClickListener(new View.OnClickListener() {
@@ -165,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                 function();
                 fun = ADD;
                 t.setText(null);
-                tr.setText(d.format(d1)+"+");
+                tr.setText(d.format(d1) + "+");
             }
         });
         bminus.setOnClickListener(new View.OnClickListener() {
@@ -190,14 +191,18 @@ public class MainActivity extends AppCompatActivity {
         bequal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
+                try {
                     function();
-                    String s = tr.getText().toString();
-                    tr.setText(s + t.getText());
-                   t.setText(d.format(d1));
-                    fun = 0;
-                }
-                catch (Exception e){
+                    fun = EQUAL;
+                    if (flag == 0) {
+                        String s = tr.getText().toString();
+                        tr.setText(s + t.getText());
+                        t.setText(null);
+                        t.setText(d.format(d1));
+                    } else {
+                        return;
+                    }
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -210,21 +215,26 @@ public class MainActivity extends AppCompatActivity {
             switch (fun) {
                 case ADD:
                     d1 = d1 + d2;
+                    flag = 0;
                     break;
                 case DIV:
                     try {
                         d1 = d1 / d2;
+                        flag = 0;
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
                 case MUL:
                     d1 = d1 * d2;
+                    flag = 0;
                     break;
                 case SUB:
                     d1 = d1 - d2;
+                    flag = 0;
                     break;
                 case EQUAL:
+                    flag++;
                     break;
             }
         } else {
