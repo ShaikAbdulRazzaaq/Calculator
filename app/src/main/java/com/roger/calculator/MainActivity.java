@@ -155,10 +155,13 @@ public class MainActivity extends AppCompatActivity {
         bproduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                function();
-                fun = MUL;
+
+                if(flag>=0){
+                    function();
+                    fun = MUL;
                 t.setText(null);
-                tr.setText(d.format(d1) + "*");
+                tr.setText(d.format(d1) + "*");}
+                else {return;}
             }
         });
         bplus.setOnClickListener(new View.OnClickListener() {
@@ -166,8 +169,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 function();
                 fun = ADD;
+                if(flag>=0){
                 t.setText(null);
-                tr.setText(d.format(d1) + "+");
+                tr.setText(d.format(d1) + "+");}
+                else {return;}
             }
         });
         bminus.setOnClickListener(new View.OnClickListener() {
@@ -175,8 +180,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 function();
                 fun = SUB;
+                if(flag>=0){
                 t.setText(null);
-                tr.setText(d.format(d1) + "-");
+                tr.setText(d.format(d1) + "-");}
+                else {return;}
             }
         });
         bdivide.setOnClickListener(new View.OnClickListener() {
@@ -184,9 +191,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 function();
                 fun = DIV;
+                if(flag>=0){
                 t.setText(null);
-                tr.setText(d.format(d1) + "/");
-
+                tr.setText(d.format(d1) + "/");}
+                else{return;}
             }
         });
         bequal.setOnClickListener(new View.OnClickListener() {
