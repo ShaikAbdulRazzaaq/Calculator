@@ -14,7 +14,8 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, bplus, bminus, bproduct, bdivide, bdot, bequal, bc, bclear;
+    Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, bplus, bminus,
+            bproduct, bdivide, bdot, bequal, bc, bclear;
     TextView t, tr;
     static final char ADD = '+';
     static final char MUL = '*';
