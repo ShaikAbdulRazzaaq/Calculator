@@ -155,37 +155,77 @@ public class MainActivity extends AppCompatActivity {
         bproduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    function();
-                    fun = MUL;
-                t.setText(null);
-                tr.setText(d.format(d1) + "*");
+                if (t.getText() == null && tr.getText() == null) {
+                    t.setText(null);
+                    tr.setText(null);
+                    return;
+                } else {
+                    try {
+                        function();
+                        fun = MUL;
+                        t.setText(null);
+                        tr.setText(d.format(d1) + "*");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         bplus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                function();
-                fun = ADD;
-                t.setText(null);
-                tr.setText(d.format(d1) + "+");
+                if (t.getText() == null && tr.getText() == null) {
+                    t.setText(null);
+                    tr.setText(null);
+                    return;
+                } else {
+                    try {
+                        function();
+                        fun = ADD;
+                        t.setText(null);
+                        tr.setText(d.format(d1) + "+");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         bminus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                function();
-                fun = SUB;
-                t.setText(null);
-                tr.setText(d.format(d1) + "-");
+                if (t.getText() == null && tr.getText() == null) {
+                    t.setText(null);
+                    tr.setText(null);
+                    return;
+                } else {
+                    try {
+                        function();
+                        fun = SUB;
+                        t.setText(null);
+                        tr.setText(d.format(d1) + "-");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         bdivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                function();
-                fun = DIV;
-                t.setText(null);
-                tr.setText(d.format(d1) + "/");
+                if (t.getText() == null && tr.getText() == null) {
+                    t.setText(null);
+                    tr.setText(null);
+                    return;
+                } else {
+                    try {
+                        function();
+                        fun = DIV;
+                        t.setText(null);
+                        tr.setText(d.format(d1) + "/");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
         });
         bequal.setOnClickListener(new View.OnClickListener() {
