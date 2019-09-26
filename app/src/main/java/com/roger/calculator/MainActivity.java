@@ -239,6 +239,7 @@ public class MainActivity extends AppCompatActivity {
                         tr.setText(s + t.getText());
                         t.setText(null);
                         t.setText(d.format(d1));
+
                     } else {
                         return;
                     }
@@ -267,6 +268,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case MUL:
                     d1 = d1 * d2;
+                    if(d1==-0){
+                        d1=0;
+                    }
                     flag = 0;
                     break;
                 case SUB:
